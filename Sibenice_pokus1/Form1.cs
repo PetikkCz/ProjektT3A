@@ -36,7 +36,24 @@ namespace Sibenice_pokus1
             menuStrip.Items.Add(hraMenuItem);
             menuStrip.Items.Add(nastrojeMenuItem);
 
+            this.MainMenuStrip = menuStrip;
+            this.Controls.Add(menuStrip);
 
+        }
+
+        private void CreateToolbar()
+        {
+            ToolStrip toolStrip = new ToolStrip();
+            ToolStrip.Dock = DockStyle.Top;
+
+            ToolStripButton novaHraButton = new ToolStripButton("Nová hra");
+            novaHraButton.Click += NovaHra_Click;
+
+            ToolStripButton konecButton = new ToolStripButton("Konec");
+            konecButton.Click += Konec_Click;
+
+            toolStrip.Items.Add(novaHraButton);
+            toolStrip.Items.Add(konecButton);
         }
     }
 }
