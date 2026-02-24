@@ -54,6 +54,38 @@ namespace Sibenice_pokus1
 
             toolStrip.Items.Add(novaHraButton);
             toolStrip.Items.Add(konecButton);
+
+            this.Controls.Add(toolStrip);
         }
+
+        private void CreateStatusStrip()
+        {
+            StatusStrip statusStrip = new StatusStrip();
+            ToolStripStatusLabel statusLabel = new ToolStripStatusLabel("Vítejte ve høe Šibenice!");
+            statusStrip.Items.Add(statusLabel);
+
+            this.Controls.Add(statusStrip);
+        }
+
+        private void CreateGamePanel()
+        {
+         
+        }
+
+        private void Novahra_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nová hra byla spuštìna!");
+        }
+
+        private void Konec_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Nastaveni_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nastavení hry");
+        }
+
     }
 }
