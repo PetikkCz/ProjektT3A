@@ -33,4 +33,5 @@
             this.Text = "Form1";
             this.ResumeLayout(false);
         }
+    }
 }

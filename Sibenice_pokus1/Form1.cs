@@ -22,7 +22,7 @@ namespace Sibenice_pokus1
             InitializeGame();
         }
 
-        private void InitializeGame();
+        private void InitializeGame()
         {
             this.Text = "Šibenice";
             this.Size = new Size(800, 600);
@@ -41,7 +41,7 @@ namespace Sibenice_pokus1
             MenuStrip menuStrip = new MenuStrip();
 
             ToolStripMenuItem hraMenuItem = new ToolStripMenuItem("Hra");
-            hraMenuItem.DropDownItems.Add("Nová hra", null, NovaHra_Click);
+            hraMenuItem.DropDownItems.Add("Nová hra", null, Novahra_Click);
             hraMenuItem.DropDownItems.Add("Konec", null, Konec_Click);
 
             ToolStripMenuItem nastrojeMenuItem = new ToolStripMenuItem("Nástroje");
@@ -58,10 +58,10 @@ namespace Sibenice_pokus1
         private void CreateToolbar()
         {
             ToolStrip toolStrip = new ToolStrip();
-            ToolStrip.Dock = DockStyle.Top;
+            toolStrip.Dock = DockStyle.Top;
 
             ToolStripButton novaHraButton = new ToolStripButton("Nová hra");
-            novaHraButton.Click += NovaHra_Click;
+            novaHraButton.Click += Novahra_Click;
 
             ToolStripButton konecButton = new ToolStripButton("Konec");
             konecButton.Click += Konec_Click;
@@ -105,7 +105,7 @@ namespace Sibenice_pokus1
 
             btnHadej = new Button();
             btnHadej.Text = "Hádej";
-            btnHadej.Location = new Point(160. 400);
+            btnHadej.Location = new Point(160, 400);
             btnHadej.Size = new Size(80, 25);
             btnHadej.Click += BtnHadej_Click;
             this.Controls.Add(btnHadej);
@@ -118,7 +118,7 @@ namespace Sibenice_pokus1
             aktualniSlovo = slova[random.Next(slova.Length)];
             zobrazeniSlova = new char[aktualniSlovo.Length];
 
-            for (int i=0, i<zobrazeniSlova.Length; i++)
+            for (int i = 0; i < zobrazeniSlova.Length; i++)
             {
                 zobrazeniSlova[i] = '_';
             }
@@ -139,7 +139,60 @@ namespace Sibenice_pokus1
             lblSlovo.Text = zobrazeni;
         }
             
-        
+        private void BtnHadej_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtZadani.Text))
+            {
+                MessageBox.Show("Zadejte písmeno!");
+                return;
+            }
+
+            char hadanePismeno = txtZadani.Text.ToUpper()[0];
+
+            if (!char.IsLetter(hadanePismeno))
+            {
+                MessageBox.Show("Zadávat se smí pouze písmena!");
+                txtZadani.Clear();
+                return;
+            }
+
+            bool spravne = false;
+            for (int i = 0; i < aktualniSlovo.Length; i++)
+            {
+                if (aktualniSlovo[i] == hadanePismeno)
+                {
+                    zobrazeniSlova[i] = hadanePismeno;
+                    spravne = true;
+                }
+            }
+
+            if (!spravne)
+            {
+                chyby++;
+                MessageBox.Show($"Špatnì! Poèet chyb: {chyby}/{maxChyby}");
+            }
+
+            UpdateZobrazeniSlova();
+            VykresliSibenici();
+
+            if (string.Join("", zobrazeniSlova) == aktualniSlovo)
+            {
+                MessageBox.Show("Gratulujeme! Vyhráli jste!");
+                NovaHra();
+            }
+            else if (chyby >= maxChyby)
+            {
+                MessageBox.Show($"Prohráli jste! Správné slovo bylo: {aktualniSlovo}");
+                NovaHra();
+            }
+
+            txtZadani.Clear();
+        }
+
+        private void VykresliSibenici()
+        {
+            panelSibenice.Invalidate();
+        }
 
         private void Novahra_Click(object sender, EventArgs e)
         {
