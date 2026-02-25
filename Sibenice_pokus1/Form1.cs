@@ -4,6 +4,18 @@ namespace Sibenice_pokus1
 {
     public partial class Form1 : Form
     {
+
+        private string[] slova = { "LIDL" };
+        private string aktualniSlovo;
+        private char[] zobrazeniSlova;
+        private int chyby = 0;
+        private const int maxChyby = 6;
+        private TextBox txtZadani;
+        private Button btnHadej;
+        private Label lblSlovo;
+        private Panel panelSibenice;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +32,8 @@ namespace Sibenice_pokus1
             CreateToolbar();
             CreateStatusStrip();
             CreateGamePanel();
+            NovaHra();
+
         }
 
         private void CreateMainMenu()
@@ -69,8 +83,63 @@ namespace Sibenice_pokus1
 
         private void CreateGamePanel()
         {
-         
+            
+            panelSibenice = new Panel();
+            panelSibenice.Size = new Size(300, 300);
+            panelSibenice.Location = new Point(50, 150);
+            panelSibenice.BackColor = Color.White;
+            panelSibenice.BorderStyle = BorderStyle.FixedSingle;
+            this.Controls.Add(panelSibenice);
+
+            lblSlovo = new Label();
+            lblSlovo.Font = new Font("Times New Roman", 20, FontStyle.Bold);
+            lblSlovo.Location = new Point(50, 100);
+            lblSlovo.Size = new Size(400, 30);
+            this.Controls.Add(lblSlovo);
+
+            txtZadani = new TextBox();
+            txtZadani.Location = new Point(50, 400);
+            txtZadani.Size = new Size(100, 25);
+            txtZadani.MaxLength = 1;
+            this.Controls.Add(txtZadani);
+
+            btnHadej = new Button();
+            btnHadej.Text = "Hádej";
+            btnHadej.Location = new Point(160. 400);
+            btnHadej.Size = new Size(80, 25);
+            btnHadej.Click += BtnHadej_Click;
+            this.Controls.Add(btnHadej);
+
         }
+
+        private void NovaHra()
+        {
+            Random random = new Random();
+            aktualniSlovo = slova[random.Next(slova.Length)];
+            zobrazeniSlova = new char[aktualniSlovo.Length];
+
+            for (int i=0, i<zobrazeniSlova.Length; i++)
+            {
+                zobrazeniSlova[i] = '_';
+            }
+
+            chyby = 0;
+            UpdateZobrazeniSlova();
+            panelSibenice.Invalidate();
+        }
+
+        private void UpdateZobrazeniSlova()
+        {
+            string zobrazeni = "";
+            foreach (char c in zobrazeniSlova)
+            {
+                zobrazeni += c + " ";
+            }
+
+            lblSlovo.Text = zobrazeni;
+        }
+            
+        
 
         private void Novahra_Click(object sender, EventArgs e)
         {
@@ -86,6 +155,7 @@ namespace Sibenice_pokus1
         {
             MessageBox.Show("Nastavení hry");
         }
+
 
     }
 }
