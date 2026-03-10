@@ -194,6 +194,54 @@ namespace Sibenice_pokus1
             panelSibenice.Invalidate();
         }
 
+        protected override void OnPaint(PaintEventArgs e) 
+        {
+            base.OnPaint(e);
+
+            Graphics g = e.Graphics;
+            Pen pero = new Pen(Color.Black, 3);
+
+            g.DrawLine(pero, 50, 250, 250, 250);
+            g.DrawLine(pero, 100, 250, 100, 50);
+            g.DrawLine(pero, 100, 50, 200, 50);
+            g.DrawLine(pero, 200, 50, 200, 80);
+
+
+            if (chyby >= 1) // Hlava
+            {
+                g.DrawEllipse(pero, 185, 80, 30, 30);
+            }
+
+            if (chyby >= 2) // Tìlo
+            {
+                g.DrawLine(pero, 200, 110, 200, 170);
+            }
+
+            if (chyby >= 3) // Levá ruka
+            {
+                g.DrawLine(pero, 200, 130, 170, 150);
+            }
+
+            if (chyby >= 4) // Pravá ruka
+            {
+                g.DrawLine(pero, 200, 130, 230, 150);
+            }
+
+            if (chyby >= 5) // Levá noha
+            {
+                g.DrawLine(pero, 200, 170, 170, 200);
+            }
+
+            if (chyby >= 6) // Pravá noha
+            {
+                g.DrawLine(pero, 200, 170, 230, 200);
+            }
+
+            pero.Dispose();
+
+
+        }
+
         private void Novahra_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Nová hra byla spuštìna!");
