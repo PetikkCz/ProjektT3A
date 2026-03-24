@@ -15,7 +15,7 @@ namespace Šibenice_Projekt_snad
         private string aktualniSlovo;
         private char[] zobrazeniSlova;
         private int chyby = 0;
-        private const int maxChyb = 6;
+        private const int maxChyb = 6; 
         private Random r = new Random();
         private string pouzitaPismena = "";
 
