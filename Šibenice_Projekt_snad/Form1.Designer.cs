@@ -106,7 +106,6 @@ namespace Šibenice_Projekt_snad
             lblSlovo.Name = "lblSlovo";
             lblSlovo.Size = new Size(500, 100);
             lblSlovo.TabIndex = 2;
-            lblSlovo.Text = "_ _ _ _ _";
             lblSlovo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtZadani

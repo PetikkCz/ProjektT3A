@@ -90,6 +90,28 @@ namespace Šibenice_Projekt_snad
 
         private void PravidlaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string pravidla =
+                                "                           PRAVIDLA HRY ŠIBENICE\n\n" +
+                                "Cíl hry:\n" +
+                                "Uhádnout tajné slovo dříve, než se vyčerpají všechny pokusy.\n\n" +
+
+                                "Jak hrát:\n" +
+                                "• Zadáváš vždy jedno písmeno\n" +
+                                "• Pokud je písmeno ve slově, odkryje se na správných místech\n" +
+                                "• Pokud tam není, přičte se chyba a kreslí se šibenice\n\n" +
+
+                                "Pravidla:\n" +
+                                "• Máš maximálně 6 chyb\n" +
+                                "• Nemůžeš zadat stejné písmeno dvakrát\n" +
+                                "• Zadávat můžeš jen písmena (žádná čísla ani znaky)\n\n" +
+
+                                "Konec hry:\n" +
+                                "• Výhra: uhodneš celé slovo\n" +
+                                "• Prohra: dosáhneš 6 chyb\n\n" +
+
+                                "Po skončení hry se automaticky spustí nová hra.";
+
+            MessageBox.Show(pravidla, "Pravidla hry", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void PanelSibenice_Paint(object sender, PaintEventArgs e)
