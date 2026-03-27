@@ -164,7 +164,8 @@ namespace Šibenice_Projekt_snad
                                 "Jak hrát:\n" +
                                 "• Zadáváš vždy jedno písmeno\n" +
                                 "• Pokud je písmeno ve slově, odkryje se na správných místech\n" +
-                                "• Pokud tam není, přičte se chyba a kreslí se šibenice\n\n" +
+                                "• Pokud tam není, přičte se chyba a kreslí se šibenice\n" +
+                                "• Potvrdit písmeno lze i pomocí klávesy ENTER\n\n" +
 
                                 "Pravidla:\n" +
                                 "• Máš maximálně 6 chyb\n" +
@@ -175,7 +176,8 @@ namespace Šibenice_Projekt_snad
                                 "• Výhra: uhodneš celé slovo\n" +
                                 "• Prohra: dosáhneš 6 chyb\n\n" +
 
-                                "Po skončení hry se automaticky spustí nová hra.";
+                                "Po skončení hry se automaticky spustí nová hra.\n" +
+                                "Ale nemusíš hádat, pokud se ti nebude chtít ;D";
 
             MessageBox.Show(pravidla, "Pravidla hry", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
