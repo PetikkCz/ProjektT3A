@@ -151,6 +151,7 @@ namespace Šibenice_Projekt_snad
 
         private void KonecToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Application.Exit();
         }
 
         private void PravidlaToolStripMenuItem_Click(object sender, EventArgs e)
