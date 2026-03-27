@@ -107,6 +107,20 @@ namespace Šibenice_Projekt_snad
             UpdateZobrazeni();
             panelSibenice.Invalidate();
 
+            if (string.Join("", zobrazeniSlova) == aktualniSlovo)
+            {
+                MessageBox.Show("Vyhrál jsi! Slovo bylo: " + aktualniSlovo);
+                NovaHra();
+                return;
+            }
+
+            if (chyby >= maxChyb)
+            {
+                MessageBox.Show("Prohrál jsi! Slovo bylo: " + aktualniSlovo);
+                NovaHra();
+                return;
+            }
+
             txtZadani.Clear();
             txtZadani.Focus();
         }
@@ -167,6 +181,43 @@ namespace Šibenice_Projekt_snad
 
         private void PanelSibenice_Paint(object sender, PaintEventArgs e)
         {
+            Graphics g = e.Graphics;
+            Pen pero = new Pen(Color.Black, 3);
+
+            g.DrawLine(pero, 30, 250, 180, 250);
+            g.DrawLine(pero, 60, 250, 60, 30);
+            g.DrawLine(pero, 60, 30, 150, 30);
+            g.DrawLine(pero, 150, 30, 150, 60);
+
+            if (chyby >= 1)
+            {
+                g.DrawEllipse(pero, 130, 60, 40, 40);
+            }
+
+            if (chyby >= 2)
+            {
+                g.DrawLine(pero, 150, 100, 150, 160);
+            }
+
+            if (chyby >= 3)
+            {
+                g.DrawLine(pero, 150, 115, 120, 140);
+            }
+
+            if (chyby >= 4)
+            {
+                g.DrawLine(pero, 150, 115, 180, 140);
+            }
+
+            if (chyby >= 5)
+            {
+                g.DrawLine(pero, 150, 160, 125, 200);
+            }
+
+            if (chyby >= 6)
+            {
+                g.DrawLine(pero, 150, 160, 175, 200);
+            }
         }
     }
 }
