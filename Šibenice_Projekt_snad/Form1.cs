@@ -64,10 +64,56 @@ namespace Šibenice_Projekt_snad
 
         private void ZkontrolujPismeno()
         {
+            if (txtZadani.Text.Length == 0)
+            {
+                MessageBox.Show("Zadej písmeno.");
+                return;
+            }
+
+            char pismeno = char.ToUpper(txtZadani.Text[0]);
+
+            if (!char.IsLetter(pismeno))
+            {
+                MessageBox.Show("Zadat můžeš jen písmeno.");
+                txtZadani.Clear();
+                return;
+            }
+
+            if (pouzitaPismena.Contains(pismeno.ToString()))
+            {
+                MessageBox.Show("Tohle písmeno už bylo použité.");
+                txtZadani.Clear();
+                return;
+            }
+
+            pouzitaPismena += pismeno + " ";
+
+            bool nalezeno = false;
+
+            for (int i = 0; i < aktualniSlovo.Length; i++)
+            {
+                if (aktualniSlovo[i] == pismeno)
+                {
+                    zobrazeniSlova[i] = pismeno;
+                    nalezeno = true;
+                }
+            }
+
+            if (!nalezeno)
+            {
+                chyby++;
+            }
+
+            UpdateZobrazeni();
+            panelSibenice.Invalidate();
+
+            txtZadani.Clear();
+            txtZadani.Focus();
         }
 
         private void BtnHadej_Click(object sender, EventArgs e)
         {
+            ZkontrolujPismeno();
         }
 
         private void BtnNova_Click(object sender, EventArgs e)
@@ -77,6 +123,11 @@ namespace Šibenice_Projekt_snad
 
         private void TxtZadani_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ZkontrolujPismeno();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void NovaHraToolStripMenuItem_Click(object sender, EventArgs e)
