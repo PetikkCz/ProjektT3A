@@ -1,18 +1,12 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Šibenice_Projekt_snad
 {
     partial class Form1
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -40,9 +34,47 @@ namespace Šibenice_Projekt_snad
             btnNova = new Button();
             lblPouzitaPismenaNadpis = new Label();
             lblPouzitaPismena = new Label();
+            groupBoxKlavesnice = new GroupBox();
+            panelKlavesnice = new Panel();
+            btnĚ = new Button();
+            btnŠ = new Button();
+            btnČ = new Button();
+            btnŘ = new Button();
+            btnŽ = new Button();
+            btnÝ = new Button();
+            btnÁ = new Button();
+            btnÍ = new Button();
+            btnÉ = new Button();
+            btnQ = new Button();
+            btnW = new Button();
+            btnE = new Button();
+            btnR = new Button();
+            btnT = new Button();
+            btnZ = new Button();
+            btnU = new Button();
+            btnI = new Button();
+            btnO = new Button();
+            btnP = new Button();
+            btnA = new Button();
+            btnS = new Button();
+            btnD = new Button();
+            btnF = new Button();
+            btnG = new Button();
+            btnH = new Button();
+            btnJ = new Button();
+            btnK = new Button();
+            btnL = new Button();
+            btnY = new Button();
+            btnX = new Button();
+            btnC = new Button();
+            btnV = new Button();
+            btnB = new Button();
+            btnN = new Button();
+            btnM = new Button();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
+            groupBoxKlavesnice.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -167,13 +199,118 @@ namespace Šibenice_Projekt_snad
             lblPouzitaPismena.TabIndex = 7;
             lblPouzitaPismena.Text = "(žádná)";
             // 
+            // groupBoxKlavesnice
+            // 
+            groupBoxKlavesnice.Controls.Add(panelKlavesnice);
+            groupBoxKlavesnice.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            groupBoxKlavesnice.ForeColor = Color.FromArgb(0, 100, 150);
+            groupBoxKlavesnice.Location = new Point(25, 345);
+            groupBoxKlavesnice.Name = "groupBoxKlavesnice";
+            groupBoxKlavesnice.Size = new Size(835, 330);
+            groupBoxKlavesnice.TabIndex = 8;
+            groupBoxKlavesnice.TabStop = false;
+            groupBoxKlavesnice.Text = "Klávesnice";
+            // 
+            // panelKlavesnice
+            // 
+            panelKlavesnice.Location = new Point(15, 28);
+            panelKlavesnice.Name = "panelKlavesnice";
+            panelKlavesnice.Size = new Size(805, 285);
+            panelKlavesnice.TabIndex = 0;
+            // 
+            // tlačítka - 1. řada diakritika
+            // 
+            NastavPoziciTlacitka(btnĚ, 80, 10, "Ě");
+            NastavPoziciTlacitka(btnŠ, 145, 10, "Š");
+            NastavPoziciTlacitka(btnČ, 210, 10, "Č");
+            NastavPoziciTlacitka(btnŘ, 275, 10, "Ř");
+            NastavPoziciTlacitka(btnŽ, 340, 10, "Ž");
+            NastavPoziciTlacitka(btnÝ, 405, 10, "Ý");
+            NastavPoziciTlacitka(btnÁ, 470, 10, "Á");
+            NastavPoziciTlacitka(btnÍ, 535, 10, "Í");
+            NastavPoziciTlacitka(btnÉ, 600, 10, "É");
+            // 
+            // tlačítka - 2. řada QWERTZ
+            // 
+            NastavPoziciTlacitka(btnQ, 48, 78, "Q");
+            NastavPoziciTlacitka(btnW, 113, 78, "W");
+            NastavPoziciTlacitka(btnE, 178, 78, "E");
+            NastavPoziciTlacitka(btnR, 243, 78, "R");
+            NastavPoziciTlacitka(btnT, 308, 78, "T");
+            NastavPoziciTlacitka(btnZ, 373, 78, "Z");
+            NastavPoziciTlacitka(btnU, 438, 78, "U");
+            NastavPoziciTlacitka(btnI, 503, 78, "I");
+            NastavPoziciTlacitka(btnO, 568, 78, "O");
+            NastavPoziciTlacitka(btnP, 633, 78, "P");
+            // 
+            // tlačítka - 3. řada
+            // 
+            NastavPoziciTlacitka(btnA, 80, 146, "A");
+            NastavPoziciTlacitka(btnS, 145, 146, "S");
+            NastavPoziciTlacitka(btnD, 210, 146, "D");
+            NastavPoziciTlacitka(btnF, 275, 146, "F");
+            NastavPoziciTlacitka(btnG, 340, 146, "G");
+            NastavPoziciTlacitka(btnH, 405, 146, "H");
+            NastavPoziciTlacitka(btnJ, 470, 146, "J");
+            NastavPoziciTlacitka(btnK, 535, 146, "K");
+            NastavPoziciTlacitka(btnL, 600, 146, "L");
+            // 
+            // tlačítka - 4. řada
+            // 
+            NastavPoziciTlacitka(btnY, 145, 206, "Y");
+            NastavPoziciTlacitka(btnX, 210, 206, "X");
+            NastavPoziciTlacitka(btnC, 275, 206, "C");
+            NastavPoziciTlacitka(btnV, 340, 206, "V");
+            NastavPoziciTlacitka(btnB, 405, 206, "B");
+            NastavPoziciTlacitka(btnN, 470, 206, "N");
+            NastavPoziciTlacitka(btnM, 535, 206, "M");
+
+            panelKlavesnice.Controls.Add(btnĚ);
+            panelKlavesnice.Controls.Add(btnŠ);
+            panelKlavesnice.Controls.Add(btnČ);
+            panelKlavesnice.Controls.Add(btnŘ);
+            panelKlavesnice.Controls.Add(btnŽ);
+            panelKlavesnice.Controls.Add(btnÝ);
+            panelKlavesnice.Controls.Add(btnÁ);
+            panelKlavesnice.Controls.Add(btnÍ);
+            panelKlavesnice.Controls.Add(btnÉ);
+
+            panelKlavesnice.Controls.Add(btnQ);
+            panelKlavesnice.Controls.Add(btnW);
+            panelKlavesnice.Controls.Add(btnE);
+            panelKlavesnice.Controls.Add(btnR);
+            panelKlavesnice.Controls.Add(btnT);
+            panelKlavesnice.Controls.Add(btnZ);
+            panelKlavesnice.Controls.Add(btnU);
+            panelKlavesnice.Controls.Add(btnI);
+            panelKlavesnice.Controls.Add(btnO);
+            panelKlavesnice.Controls.Add(btnP);
+
+            panelKlavesnice.Controls.Add(btnA);
+            panelKlavesnice.Controls.Add(btnS);
+            panelKlavesnice.Controls.Add(btnD);
+            panelKlavesnice.Controls.Add(btnF);
+            panelKlavesnice.Controls.Add(btnG);
+            panelKlavesnice.Controls.Add(btnH);
+            panelKlavesnice.Controls.Add(btnJ);
+            panelKlavesnice.Controls.Add(btnK);
+            panelKlavesnice.Controls.Add(btnL);
+
+            panelKlavesnice.Controls.Add(btnY);
+            panelKlavesnice.Controls.Add(btnX);
+            panelKlavesnice.Controls.Add(btnC);
+            panelKlavesnice.Controls.Add(btnV);
+            panelKlavesnice.Controls.Add(btnB);
+            panelKlavesnice.Controls.Add(btnN);
+            panelKlavesnice.Controls.Add(btnM);
+            // 
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 428);
+            statusStrip1.Location = new Point(0, 718);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(900, 22);
-            statusStrip1.TabIndex = 8;
+            statusStrip1.TabIndex = 9;
             statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
@@ -187,7 +324,8 @@ namespace Šibenice_Projekt_snad
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 245, 250);
-            ClientSize = new Size(900, 450);
+            ClientSize = new Size(900, 740);
+            Controls.Add(groupBoxKlavesnice);
             Controls.Add(statusStrip1);
             Controls.Add(lblPouzitaPismena);
             Controls.Add(lblPouzitaPismenaNadpis);
@@ -198,15 +336,36 @@ namespace Šibenice_Projekt_snad
             Controls.Add(panelSibenice);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            MinimumSize = new Size(916, 779);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Šibenice";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            groupBoxKlavesnice.ResumeLayout(false);
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void NastavTlacitkoKlavesy(Button tlacitko, string text)
+        {
+            tlacitko.BackColor = Color.White;
+            tlacitko.FlatStyle = FlatStyle.Flat;
+            tlacitko.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            tlacitko.ForeColor = Color.FromArgb(0, 100, 150);
+            tlacitko.Name = "btn" + text;
+            tlacitko.Size = new Size(58, 58);
+            tlacitko.TabIndex = 0;
+            tlacitko.Text = text;
+            tlacitko.UseVisualStyleBackColor = false;
+        }
+
+        private void NastavPoziciTlacitka(Button tlacitko, int x, int y, string text)
+        {
+            NastavTlacitkoKlavesy(tlacitko, text);
+            tlacitko.Location = new Point(x, y);
         }
 
         #endregion
@@ -224,6 +383,43 @@ namespace Šibenice_Projekt_snad
         private Button btnNova;
         private Label lblPouzitaPismenaNadpis;
         private Label lblPouzitaPismena;
+        private GroupBox groupBoxKlavesnice;
+        private Panel panelKlavesnice;
+        private Button btnĚ;
+        private Button btnŠ;
+        private Button btnČ;
+        private Button btnŘ;
+        private Button btnŽ;
+        private Button btnÝ;
+        private Button btnÁ;
+        private Button btnÍ;
+        private Button btnÉ;
+        private Button btnQ;
+        private Button btnW;
+        private Button btnE;
+        private Button btnR;
+        private Button btnT;
+        private Button btnZ;
+        private Button btnU;
+        private Button btnI;
+        private Button btnO;
+        private Button btnP;
+        private Button btnA;
+        private Button btnS;
+        private Button btnD;
+        private Button btnF;
+        private Button btnG;
+        private Button btnH;
+        private Button btnJ;
+        private Button btnK;
+        private Button btnL;
+        private Button btnY;
+        private Button btnX;
+        private Button btnC;
+        private Button btnV;
+        private Button btnB;
+        private Button btnN;
+        private Button btnM;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
     }

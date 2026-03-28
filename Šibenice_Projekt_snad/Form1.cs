@@ -8,10 +8,17 @@ namespace Šibenice_Projekt_snad
     {
         private string[] slova =
         {
-            "SWITCH", "ROUTER", "VLAN", "DHCP", "FIREWALL",
-            "MALWARE", "PHISHING", "SOC", "ENKRYPCE", "VPN",
-            "PROXY", "SERVER", "CLIENT", "PORT", "PROTOKOL",
-            "SSL", "TLS"
+            "PROGRAM", "MONITOR", "KLÁVESY", "OBRAZOVKA",
+            "SERVER", "ROUTER", "SWITCH", "PORTÁL",
+            "PROTOKOL", "FIREWALL", "MALWARE",
+            "INTERNET", "PAMĚŤ", "KAMERA", "TELEFON",
+            "DISPLEJ", "SLUCHÁTKA", "SIGNÁL",
+            "PROCESOR", "SYSTÉM", "KONTROLA",
+            "POČÍTAČ", "SÍŤOVÝ", "ZÁLOHA",
+            "PŘENOS", "ŘÍZENÍ", "ŠIFRA",
+            "ÚLOŽIŠTĚ", "ČASOVAČ", "NAPÁJENÍ",
+            "ZOBRAZENÍ", "PŘIPOJENÍ", "VYSÍLAČ",
+            "PŘIJÍMAČ", "ZABEZPEČENÍ"
         };
 
         private string aktualniSlovo;
@@ -33,7 +40,46 @@ namespace Šibenice_Projekt_snad
             konecToolStripMenuItem.Click += KonecToolStripMenuItem_Click;
             pravidlaToolStripMenuItem.Click += PravidlaToolStripMenuItem_Click;
 
+            PripojKlavesnici();
             NovaHra();
+        }
+
+        private void PripojKlavesnici()
+        {
+            foreach (Control control in panelKlavesnice.Controls)
+            {
+                if (control is Button btn)
+                {
+                    btn.Click += Klavesa_Click;
+                }
+            }
+        }
+
+        private void ObnovKlavesnici()
+        {
+            foreach (Control control in panelKlavesnice.Controls)
+            {
+                if (control is Button btn)
+                {
+                    btn.Enabled = true;
+                    btn.BackColor = Color.White;
+                    btn.ForeColor = Color.FromArgb(0, 100, 150);
+                }
+            }
+        }
+
+        private void ZakazTlacitkoPismene(char pismeno)
+        {
+            foreach (Control control in panelKlavesnice.Controls)
+            {
+                if (control is Button btn && btn.Text == pismeno.ToString())
+                {
+                    btn.Enabled = false;
+                    btn.BackColor = Color.FromArgb(210, 210, 210);
+                    btn.ForeColor = Color.DimGray;
+                    break;
+                }
+            }
         }
 
         private void NovaHra()
@@ -50,6 +96,8 @@ namespace Šibenice_Projekt_snad
             pouzitaPismena = "";
 
             UpdateZobrazeni();
+            ObnovKlavesnici();
+
             txtZadani.Clear();
             txtZadani.Focus();
             panelSibenice.Invalidate();
@@ -62,15 +110,9 @@ namespace Šibenice_Projekt_snad
             toolStripStatusLabel1.Text = "Chyby: " + chyby + " / " + maxChyb;
         }
 
-        private void ZkontrolujPismeno()
+        private void ZkusPismeno(char pismeno)
         {
-            if (txtZadani.Text.Length == 0)
-            {
-                MessageBox.Show("Zadej písmeno.");
-                return;
-            }
-
-            char pismeno = char.ToUpper(txtZadani.Text[0]);
+            pismeno = char.ToUpper(pismeno);
 
             if (!char.IsLetter(pismeno))
             {
@@ -87,6 +129,7 @@ namespace Šibenice_Projekt_snad
             }
 
             pouzitaPismena += pismeno + " ";
+            ZakazTlacitkoPismene(pismeno);
 
             bool nalezeno = false;
 
@@ -123,6 +166,25 @@ namespace Šibenice_Projekt_snad
 
             txtZadani.Clear();
             txtZadani.Focus();
+        }
+
+        private void ZkontrolujPismeno()
+        {
+            if (txtZadani.Text.Length == 0)
+            {
+                MessageBox.Show("Zadej písmeno.");
+                return;
+            }
+
+            ZkusPismeno(txtZadani.Text[0]);
+        }
+
+        private void Klavesa_Click(object sender, EventArgs e)
+        {
+            if (sender is Button btn && btn.Text.Length > 0)
+            {
+                ZkusPismeno(btn.Text[0]);
+            }
         }
 
         private void BtnHadej_Click(object sender, EventArgs e)
