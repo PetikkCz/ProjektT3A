@@ -45,6 +45,7 @@ namespace Šibenice_Projekt_snad
             btnÁ = new Button();
             btnÍ = new Button();
             btnÉ = new Button();
+            btnŤ = new Button();
             btnQ = new Button();
             btnW = new Button();
             btnE = new Button();
@@ -220,15 +221,16 @@ namespace Šibenice_Projekt_snad
             // 
             // tlačítka - 1. řada diakritika
             // 
-            NastavPoziciTlacitka(btnĚ, 80, 10, "Ě");
-            NastavPoziciTlacitka(btnŠ, 145, 10, "Š");
-            NastavPoziciTlacitka(btnČ, 210, 10, "Č");
-            NastavPoziciTlacitka(btnŘ, 275, 10, "Ř");
-            NastavPoziciTlacitka(btnŽ, 340, 10, "Ž");
-            NastavPoziciTlacitka(btnÝ, 405, 10, "Ý");
-            NastavPoziciTlacitka(btnÁ, 470, 10, "Á");
-            NastavPoziciTlacitka(btnÍ, 535, 10, "Í");
-            NastavPoziciTlacitka(btnÉ, 600, 10, "É");
+            NastavPoziciTlacitka(btnĚ, 48, 10, "Ě");
+            NastavPoziciTlacitka(btnŠ, 113, 10, "Š");
+            NastavPoziciTlacitka(btnČ, 178, 10, "Č");
+            NastavPoziciTlacitka(btnŘ, 243, 10, "Ř");
+            NastavPoziciTlacitka(btnŽ, 308, 10, "Ž");
+            NastavPoziciTlacitka(btnÝ, 373, 10, "Ý");
+            NastavPoziciTlacitka(btnÁ, 438, 10, "Á");
+            NastavPoziciTlacitka(btnÍ, 503, 10, "Í");
+            NastavPoziciTlacitka(btnÉ, 568, 10, "É");
+            NastavPoziciTlacitka(btnŤ, 633, 10, "Ť");
             // 
             // tlačítka - 2. řada QWERTZ
             // 
@@ -274,6 +276,7 @@ namespace Šibenice_Projekt_snad
             panelKlavesnice.Controls.Add(btnÁ);
             panelKlavesnice.Controls.Add(btnÍ);
             panelKlavesnice.Controls.Add(btnÉ);
+            panelKlavesnice.Controls.Add(btnŤ);
 
             panelKlavesnice.Controls.Add(btnQ);
             panelKlavesnice.Controls.Add(btnW);
@@ -385,6 +388,7 @@ namespace Šibenice_Projekt_snad
         private Label lblPouzitaPismena;
         private GroupBox groupBoxKlavesnice;
         private Panel panelKlavesnice;
+        private Button btnŤ;
         private Button btnĚ;
         private Button btnŠ;
         private Button btnČ;
